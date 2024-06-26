@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+
+body{
+    background-color: #757575;
+}
+
+.search-element{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+}
+.form-control{
+    border:none;
+    overflow:hidden;
+    transition:visibility 0s linear 0.218s,background-color 0.218s;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+;
+  
+}
+
+.hide-search-list{
+    display: none;
+}
+
+.search-list .search-list-item{
+    background-color: rgb(61, 75, 75);
+    padding: 0.5rem;
+    border-bottom: 1px solid black;
+    width: calc(350px - 8px);
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: background-color 200ms ease;
+    -o-transition: background-color 200ms ease;
+    transition: background-color 200ms ease;
+}
+
+.search-list .search-list-item:Hover{
+    background-color: #1f1f1f;
+}
+
+.search-list-item{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.search-item-thumbnail img{
+    width: 40px;
+    margin-right: 1rem;
+}
+
+.search-item-info{
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    opacity: 0.6;
+}
