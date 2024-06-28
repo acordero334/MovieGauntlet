@@ -3,6 +3,9 @@
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 const resultGrid = document.getElementById('result-grid');
+const myMovieList = document.getElementById('my-movie-list');
+const array_movieList= [];
+//let pickedMovie = "test";
 
 //load movies from API
 async function loadMovies(searchTerm){
@@ -72,7 +75,7 @@ function loadMovieDetails(){
             movieSearchBox.value = "";
             const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=cf0a3c31`);
             const movieDetails = await result.json();
-            console.log(movieDetails);
+            //console.log(movieDetails);
             displayMovieDetails(movieDetails);
 
             //adding clicked movie to an array? we'll see how this goes
@@ -82,6 +85,8 @@ function loadMovieDetails(){
 }
 
 function displayMovieDetails(details){
+    myMovieList.innerHTML="";
+    pickedMovie = details;
     resultGrid.innerHTML = `
     <div class = "movie-poster">
     <img src = "${(details.Poster != "N/A") ? details.Poster : "image-not-found.png"}" alt = "Movie Poster">
@@ -94,6 +99,8 @@ function displayMovieDetails(details){
     </ul>
     <p class = "movie-plot">${details.Plot}</p>
     </div>
+    <div class = "add-button">
+    <button id= "id-button" onclick="addMovieToList()">Add</button> 
    `;
 }
 
@@ -104,3 +111,12 @@ window.addEventListener('click', (event) =>{
 });
 
 
+function addMovieToList(){
+    array_movieList.push(pickedMovie);
+    console.log(array_movieList);
+}
+
+function displayMyList(){
+    myMovieList.innerHTML='
+    ';
+}
