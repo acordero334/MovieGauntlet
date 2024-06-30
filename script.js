@@ -86,7 +86,7 @@ function loadMovieDetails(){
 
 function displayMovieDetails(details){
     myMovieList.innerHTML="";
-    pickedMovie = details;
+    pickedMovie = {title: details.Title, poster:details.Poster};
     resultGrid.innerHTML = `
     <div class = "movie-poster">
     <img src = "${(details.Poster != "N/A") ? details.Poster : "image-not-found.png"}" alt = "Movie Poster">
@@ -116,7 +116,43 @@ function addMovieToList(){
     console.log(array_movieList);
 }
 
+function quickAdd(movie){
+    array_movieList.push(movie);
+}
+
 function displayMyList(){
-    myMovieList.innerHTML='
-    ';
+resultGrid.innerHTML="";
+myMovieList.innerHtml = "";
+    for (let i = 0; i < array_movieList.length; i ++){
+        
+        let myMovie = document.createElement('div'); 
+
+        myMovie.innerHTML = `
+            <div class = "my-movie-thumbnail">
+                <img src = "${array_movieList[i].poster}">
+            </div>
+            <div class = "my-movie-title">
+                <h3>${array_movieList[i].title}</h3>
+            </div>
+        `;
+    myMovieList.appendChild(myMovie);
+    }
+    }
+
+function selectRandomMovie(){
+    resultGrid.innerHTML = "";
+    myMovieList.innerHTML="";
+    let MovieResult = array_movieList[Math.floor(Math.random()*array_movieList.length)];
+    let deleteThis = array_movieList.indexOf(MovieResult);
+    resultGrid.innerHTML=`
+    <div class = "movie-result"> 
+    <img src = "${MovieResult.poster}">
+    </div>
+    `;
+    array_movieList.splice(deleteThis, 1);
+
+    console.log(MovieResult);
+    console.log(array_movieList);
+    //add remove function from the results and on the list page.
+
 }
