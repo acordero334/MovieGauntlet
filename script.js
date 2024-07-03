@@ -89,7 +89,7 @@ function displayMovieDetails(details){
     pickedMovie = {title: details.Title, poster:details.Poster};
     resultGrid.innerHTML = `
     <div class = "movie-poster">
-    <img src = "${(details.Poster != "N/A") ? details.Poster : "image-not-found.png"}" alt = "Movie Poster">
+    <img src = "${(details.Poster != "N/A") ? details.Poster : "image-not-found.png"}" class = "result-poster" alt = "Movie Poster">
     </div>
     <div class="movie-info">
     <h3 class= "movie-title">${details.Title}</h3>
